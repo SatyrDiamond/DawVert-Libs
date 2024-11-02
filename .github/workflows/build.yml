@@ -18,14 +18,11 @@ jobs:
           gcc src/ymz_codec.c -shared -o linux_64/ymz_codec.so
           g++ src/brr_codec.cpp -shared -o linux_64/brr_codec.so
 
-      - name: Zip artifact for deployment
-        run: zip build_linux.zip ./linux_64/* -r
-
-      - name: Upload artifact for deployment job
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: build_linux
-          path: build_linux.zip
+          path: ./linux_64
 
   compile_windows:
     runs-on: windows-latest
@@ -42,11 +39,8 @@ jobs:
           gcc src/ymz_codec.c -shared -o win_64/ymz_codec.dll
           g++ src/brr_codec.cpp -shared -o win_64/brr_codec.dll
 
-      - name: Zip artifact for deployment
-        run: zip build_windows.zip ./win_64/* -r
-
-      - name: Upload artifact for deployment job
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: build_windows
-          path: build_windows.zip
+          path: ./win_64
