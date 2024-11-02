@@ -1,0 +1,23 @@
+name: DawVert Libs
+
+on: [push]
+
+jobs:
+  compile_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compile Linux
+        uses: actions/checkout@v4
+      - name: npm install, build, and test
+        run: ./make_linux.sh
+
+  compile_windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - name: Compile Windows
+        uses: actions/checkout@v4
+      - name: npm install, build, and test
+        run: ./make_win.sh
