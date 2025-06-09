@@ -5,3 +5,4 @@ gcc src/yma_codec.c -shared -o linux_64/yma_codec.so
 gcc src/ymb_codec.c -shared -o linux_64/ymb_codec.so
 gcc src/ymz_codec.c -shared -o linux_64/ymz_codec.so
 g++ src/brr_codec.cpp -shared -o linux_64/brr_codec.so -static
+gcc src/protools_unxor.c -shared -o linux_64/protools_unxor.so
